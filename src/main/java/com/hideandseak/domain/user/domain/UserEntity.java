@@ -2,6 +2,7 @@ package com.hideandseak.domain.user.domain;
 
 import com.hideandseak.domain.user.domain.enums.AdultAccess;
 import com.hideandseak.domain.user.domain.enums.Role;
+import com.hideandseak.domain.user.domain.enums.Subscribe;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -31,6 +32,9 @@ public class UserEntity {
     @Column(nullable = false)
     private Role role;
 
+    @Column(nullable = false)
+    private Subscribe subscribe;
+
     @Builder
     public UserEntity(String userAccount, String password, String anything) {
         this.userAccount = userAccount;
@@ -38,9 +42,18 @@ public class UserEntity {
         this.access = AdultAccess.NO;
         this.anything = anything;
         this.role = Role.USER;
+        this.subscribe = Subscribe.X;
     }
 
     public void fixPassword(String password) {
         this.password = password;
+    }
+
+    public void subscribe(){
+        this.subscribe = Subscribe.O;
+    }
+
+    public void cancelSubscribe(){
+        this.subscribe = Subscribe.X;
     }
 }

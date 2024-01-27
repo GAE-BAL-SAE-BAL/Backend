@@ -1,6 +1,7 @@
 package com.hideandseak.domain.user.service;
 
 import com.hideandseak.domain.user.domain.UserEntity;
+import com.hideandseak.domain.user.domain.enums.Subscribe;
 import com.hideandseak.domain.user.domain.repository.UserRepository;
 import com.hideandseak.domain.user.dto.req.UserJoinRequest;
 import com.hideandseak.domain.user.dto.req.UserLoginRequest;
@@ -79,8 +80,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public BaseResponse myProfile(Authentication authentication) {
-        return new BaseResponse(HttpStatus.OK, "테스");
+    public BaseResponse myProfile(Authentication authentication) {;
+        return new BaseResponse(
+                HttpStatus.OK,
+                "구독정보",
+                userRepository.findByUserAccount(authentication.getName()).get().getSubscribe()
+        );
     }
 
     @Override

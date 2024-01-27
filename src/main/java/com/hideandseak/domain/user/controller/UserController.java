@@ -31,7 +31,7 @@ public class UserController {
         return userService.refreshToAccessToken(userRefreshRequest);
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/subscription")
     public BaseResponse myProfile(Authentication authentication){
         return userService.myProfile(authentication);
     }
