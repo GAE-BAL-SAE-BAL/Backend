@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -92,5 +93,21 @@ public class UserServiceImpl implements UserService{
     public UserEntity getUserByUserAccount(String userAccount) {
         return userRepository.findByUserAccount(userAccount)
                 .orElseThrow(AuthErrorException::NOT_FOUND);
+    }
+
+    @Override
+    public BaseResponse subscription(Authentication authentication) {
+        UserEntity user = userRepository.findByUserAccount(authentication.getName()).get();
+        user.subscribe();
+        userRepository.save(user);
+        return new BaseResponse(HttpStatus.OK, "구독성공");
+    }
+
+    @Override
+    public BaseResponse cancelSubscription(Authentication authentication) {
+        UserEntity user = userRepository.findByUserAccount(authentication.getName()).get();
+        user.cancelSubscribe();
+        userRepository.save(user);
+        return new BaseResponse(HttpStatus.OK, "구독 취소 성공");
     }
 }

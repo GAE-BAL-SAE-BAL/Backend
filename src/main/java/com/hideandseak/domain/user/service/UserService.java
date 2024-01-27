@@ -5,7 +5,6 @@ import com.hideandseak.domain.user.dto.req.UserJoinRequest;
 import com.hideandseak.domain.user.dto.req.UserLoginRequest;
 import com.hideandseak.domain.user.dto.req.UserRefreshRequest;
 import com.hideandseak.global.common.BaseResponse;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 
 public interface UserService {
@@ -18,6 +17,10 @@ public interface UserService {
     BaseResponse myProfile(Authentication authentication);
 
     UserEntity getUserByUserAccount(String userAccount);
+
+    BaseResponse subscription(Authentication authentication);
+
+    BaseResponse cancelSubscription(Authentication authentication);
 
     default UserEntity joinToEntity(UserJoinRequest userJoinRequest){
         return UserEntity.builder()
