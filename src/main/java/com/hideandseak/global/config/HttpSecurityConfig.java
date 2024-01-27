@@ -30,7 +30,7 @@ public class HttpSecurityConfig {
     @Bean
     protected SecurityFilterChain defaultSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic(AbstractHttpConfigurer::disable)
-                //.csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)
                 //.cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/").permitAll()
