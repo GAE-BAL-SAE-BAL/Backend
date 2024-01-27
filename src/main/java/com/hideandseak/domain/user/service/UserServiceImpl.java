@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService{
         Map<String, String> tokens = new HashMap<>();
         tokens.put("accessToken", JwtTokenUtil.createAccessToken(user.getUserAccount(), secretKey));
         tokens.put("refreshToken", JwtTokenUtil.createRefreshToken(user.getUserAccount(), secretKey));
+        tokens.put("userAccount", userLoginRequest.userAccount());
 
         return new BaseResponse(HttpStatus.OK, "로그인 성공", tokens);
     }
