@@ -51,7 +51,7 @@ jobs:
           sudo docker build --platform linux/amd64 -t "${{ secrets.DOCKER_USERNAME }}/hideandseak" .
           sudo docker push "${{ secrets.DOCKER_USERNAME }}/hideandseak"
 
-      ## deploy to production
+           ## deploy to production
       - name: Deploy to prod
         uses: appleboy/ssh-action@master
         id: deploy-prod
@@ -62,7 +62,9 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           envs: GITHUB_SHA
           script: |
-            sudo docker ps
+            sudo docker ps -a
+            sudo docker stop $(sudo docker ps -q) # 모든 실행 중인 컨테이너 중지
+            sudo docker rm $(sudo docker ps -aq) # 모든 컨테이너 삭제
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/hideandseak
             sudo docker run -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/hideandseak
             sudo docker image prune -f
