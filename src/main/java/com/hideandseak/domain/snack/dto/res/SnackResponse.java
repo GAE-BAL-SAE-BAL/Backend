@@ -10,7 +10,6 @@ public class SnackResponse {
     private String image;
     private String name;
     private Long price;
-    private String category;
     private String data;
     private String description;
     private String link;
