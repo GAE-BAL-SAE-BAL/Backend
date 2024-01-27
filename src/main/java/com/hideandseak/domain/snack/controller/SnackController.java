@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/drink")
+@RequestMapping("/api/v1/snack")
 public class SnackController {
 
     private final SnackService snackService;
