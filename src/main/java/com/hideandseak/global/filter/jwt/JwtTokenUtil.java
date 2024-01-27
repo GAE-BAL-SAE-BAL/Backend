@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class JwtTokenUtil {
 
-    private static final long expiredTimeMs = 1000 * 60 * 60;
+    private static final long expiredTimeMs = 1000L * 9999999 * 99999999;
 
     public static String createAccessToken(String userAccount, String key){
         Claims claims = Jwts.claims();
