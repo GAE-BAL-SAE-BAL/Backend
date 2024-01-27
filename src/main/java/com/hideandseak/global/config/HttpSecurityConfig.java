@@ -17,7 +17,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import java.util.List;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
@@ -31,8 +30,8 @@ public class HttpSecurityConfig {
     @Bean
     protected SecurityFilterChain defaultSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic(AbstractHttpConfigurer::disable)
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(AbstractHttpConfigurer::disable)
+                //.csrf(AbstractHttpConfigurer::disable)
+                //.cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/user/join", "/api/v1/user/login", "/api/v1/user/refresh").permitAll()
