@@ -25,7 +25,7 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-resources/application-cloud.properties
+src/main/resources/application-cloud.properties
 
 ### NetBeans ###
 /nbproject/private/
