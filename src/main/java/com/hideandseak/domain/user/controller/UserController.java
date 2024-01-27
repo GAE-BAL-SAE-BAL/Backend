@@ -41,7 +41,7 @@ public class UserController {
         return userService.subscription(authentication);
     }
 
-    @PostMapping("/subscription/cancle")
+    @PostMapping("/subscription/cancel")
     public BaseResponse cancelSubscription(Authentication authentication){
         return userService.cancelSubscription(authentication);
     }
