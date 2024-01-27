@@ -4,7 +4,6 @@ import com.hideandseak.domain.drink.domain.DrinkEntity;
 import com.hideandseak.domain.drink.domain.repository.DrinkRepository;
 import com.hideandseak.domain.drink.dto.req.AddDrinkRequest;
 import com.hideandseak.domain.drink.exception.DrinkErrorException;
-import com.hideandseak.domain.user.domain.repository.UserRepository;
 import com.hideandseak.global.common.BaseResponse;
 import com.hideandseak.global.infra.S3.S3Uploader;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DrinkServiceImpl implements DrinkService{
 
-    private final UserRepository userRepository;
     private final DrinkRepository drinkRepository;
     private final S3Uploader s3Uploader;
     @Override
