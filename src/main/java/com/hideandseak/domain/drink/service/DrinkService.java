@@ -8,7 +8,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public interface DrinkService {
     BaseResponse addDrink(Authentication authentication, AddDrinkRequest addDrinkRequest, MultipartFile multipartFile) throws IOException;

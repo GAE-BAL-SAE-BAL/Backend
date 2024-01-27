@@ -1,14 +1,9 @@
 package com.hideandseak.domain.snack.service;
 
-import com.hideandseak.domain.drink.domain.DrinkEntity;
-import com.hideandseak.domain.drink.domain.repository.DrinkRepository;
-import com.hideandseak.domain.drink.dto.req.AddDrinkRequest;
-import com.hideandseak.domain.drink.exception.DrinkErrorException;
 import com.hideandseak.domain.snack.domain.repository.SnackEntity;
 import com.hideandseak.domain.snack.domain.repository.SnackRepository;
 import com.hideandseak.domain.snack.dto.req.AddSnackRequest;
 import com.hideandseak.domain.snack.exception.SnackErrorException;
-import com.hideandseak.domain.user.domain.repository.UserRepository;
 import com.hideandseak.global.common.BaseResponse;
 import com.hideandseak.global.infra.S3.S3Uploader;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

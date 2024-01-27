@@ -1,7 +1,6 @@
 package com.hideandseak.domain.user.service;
 
 import com.hideandseak.domain.user.domain.UserEntity;
-import com.hideandseak.domain.user.domain.enums.Subscribe;
 import com.hideandseak.domain.user.domain.repository.UserRepository;
 import com.hideandseak.domain.user.dto.req.UserJoinRequest;
 import com.hideandseak.domain.user.dto.req.UserLoginRequest;
@@ -19,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
