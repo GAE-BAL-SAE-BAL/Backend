@@ -28,7 +28,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .claim("userAccount", userAccount)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1))
+                .setExpiration(new Date(System.currentTimeMillis() + Duration.ofDays(30).toMillis()))
                 .signWith(SignatureAlgorithm.HS256, key)
                 .compact();
     }
