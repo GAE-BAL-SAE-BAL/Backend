@@ -5,7 +5,7 @@ import com.hideandseak.domain.snack.domain.repository.SnackRepository;
 import com.hideandseak.domain.snack.dto.req.AddSnackRequest;
 import com.hideandseak.domain.snack.exception.SnackErrorException;
 import com.hideandseak.global.common.BaseResponse;
-import com.hideandseak.global.infra.S3.S3Uploader;
+//import com.hideandseak.global.infra.S3.S3Uploader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -19,13 +19,13 @@ import java.io.IOException;
 public class SnackServiceImpl implements SnackService{
 
     private final SnackRepository snackRepository;
-    private final S3Uploader s3Uploader;
+//    private final S3Uploader s3Uploader;
     @Override
     public BaseResponse addSnack(Authentication authentication, AddSnackRequest addSnackRequest, MultipartFile multipartFile) throws IOException {
         //if (userRepository.findByUserAccount(authentication.getName()).get().getRole().equals(Role.ADMIN)) {
-        String image = s3Uploader.upload(multipartFile, "snack");
-        SnackEntity snack = dtoToEntity(addSnackRequest, image);
-        snackRepository.save(snack);
+//        String image = s3Uploader.upload(multipartFile, "snack");
+//        SnackEntity snack = dtoToEntity(addSnackRequest, image);
+//        snackRepository.save(snack);
         //}
 
         return new BaseResponse(HttpStatus.OK, "저장성공");
