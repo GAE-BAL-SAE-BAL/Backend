@@ -34,7 +34,7 @@ public class HttpSecurityConfig {
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/v1/user/join", "/api/v1/user/login", "/api/v1/user/refresh").permitAll()
+                        .requestMatchers("/api/v1/user/join", "/api/v1/user/login", "/api/v1/user/refresh").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin().disable()
