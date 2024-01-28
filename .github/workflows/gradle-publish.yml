@@ -66,7 +66,7 @@ jobs:
             sudo docker stop $(sudo docker ps -q) # 모든 실행 중인 컨테이너 중지
             sudo docker rm $(sudo docker ps -aq) # 모든 컨테이너 삭제
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/hideandseak
-            sudo docker run -d -p 443:443 ${{ secrets.DOCKER_USERNAME }}/hideandseak
+            sudo docker run -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/hideandseak
             sudo docker image prune -f
             - name: Debug
               run: |

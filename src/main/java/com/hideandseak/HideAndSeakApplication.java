@@ -15,7 +15,5 @@ public class HideAndSeakApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HideAndSeakApplication.class, args);
-
-
     }
 }
