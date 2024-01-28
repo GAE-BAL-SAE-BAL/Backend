@@ -33,7 +33,9 @@ public class HttpSecurityConfig {
                 .cors()
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().permitAll()
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/user/join", "/api/v1/user/login", "/api/v1/user/refresh").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin().disable()
                 .addFilterBefore(new JwtTokenFilter(userService, secretKey), UsernamePasswordAuthenticationFilter.class);
